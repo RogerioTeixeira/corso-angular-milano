@@ -37,7 +37,8 @@ export class DatatableComponent implements OnInit {
     this.renderedList = this.data.slice(0, this.maxRows + 1)
   }
 
-  delete(val: any) {
+  delete(val: any, e:Event) {
+    e.stopPropagation();
     this.onDelete.emit(val);
   }
 
@@ -55,6 +56,7 @@ export class DatatableComponent implements OnInit {
   }
 
   selectRow(index:number){
+   
     this.selectIndex = index == this.selectIndex ? -1 : index;
     this.onSelect.emit(index >= 0 ? this.renderedList[index] : null);
   }

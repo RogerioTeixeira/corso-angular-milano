@@ -41,9 +41,6 @@ export class PaginatorComponent implements OnInit {
 
   }
 
-
-
-
   setPage(page: number) {
     this.pager = this.pagination.getPager(this.totalItems, page, this.pageRows)
     this.onChangePage.emit(this.pager);

@@ -7,11 +7,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr [ngClass] ="{'bg-primary':selectIndex == i, 'text-white':selectIndex == i}" *ngFor="let item of renderedList; let i = index" (click)="selectRow(i)">
+    <tr [ngClass] ="{'bg-primary':selectIndex == i, 'text-white':selectIndex == i}" 
+    *ngFor="let item of renderedList; let i = index" (click)="selectRow(i)">
       <th scope="row">{{i + 1}}</th>
       <td *ngFor="let colData of cols">{{item[colData.field]}}</td>
       <th scope="col" *ngIf="activateDelete">
-        <button class="btn btn-danger" (click)="delete(item)">
+        <button class="btn btn-danger" (click)="delete(item, $event)">
           <i class="fa fa-trash" aria-hidden="true"></i>
         </button>
       </th>

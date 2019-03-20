@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Cliente } from 'src/app/models/cliente';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +40,7 @@ export class ClienteService {
     new Cliente({nome:"carlo 16", cognome:"rossi" , eta:40 , id:125}),
     new Cliente({nome:"carlo 17", cognome:"rossi" , eta:40 , id:147}),
     new Cliente({nome:"carlo 18", cognome:"rossi" , eta:40 , id:150}),
-    new Cliente({nome:"carlo 18", cognome:"rossi" , eta:40 , id:4})
+    new Cliente({nome:"carlo 18", cognome:"rossi" , eta:40 , id:198})
     
   ]
   constructor() { }
