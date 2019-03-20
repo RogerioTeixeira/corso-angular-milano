@@ -12,6 +12,7 @@ export class ClientiPageComponent implements OnInit {
 
   public cols:DataTableCol[];
   public data:Cliente[];
+  public currentCliente:Cliente;
 
   
   constructor(public clienteService:ClienteService) { }
@@ -29,6 +30,13 @@ export class ClientiPageComponent implements OnInit {
   deleteRow(value:Cliente){
     this.data = this.clienteService.deleteByid(value.id);
   }
-
+  
+  selectRow(event){
+    console.log(event)
+     this.currentCliente = event;
+     if(this.currentCliente){
+      
+     }
+  }
 
 }

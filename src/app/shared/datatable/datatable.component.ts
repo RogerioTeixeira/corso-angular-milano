@@ -26,16 +26,18 @@ export class DatatableComponent implements OnInit {
 
   @Input() activateDelete: boolean;
   @Input() maxRows: number = 5;
+  public selectIndex:number = -1;
   @Output() onDelete: EventEmitter<any> = new EventEmitter<any>()
+  @Output() onSelect: EventEmitter<any> = new EventEmitter<any>()
 
  
 
-  filteredData: any[];;
+  renderedList: any[];;
 
   constructor() { }
 
   ngOnInit() {
-    this.filteredData = this.data.slice(0, this.maxRows + 1)
+    this.renderedList = this.data.slice(0, this.maxRows + 1)
   }
 
   delete(val: any) {
@@ -46,11 +48,21 @@ export class DatatableComponent implements OnInit {
     
     this.pageData = event;
     this.renderList();
+    this.resetCurrentSelection();
 
   }
 
   renderList() {
-    this.filteredData = this.data.slice(this.pageData.startIndex, this.pageData.endIndex + 1);
+    this.renderedList = this.data.slice(this.pageData.startIndex, this.pageData.endIndex + 1);
+  }
+
+  selectRow(index:number){
+    this.selectIndex = index == this.selectIndex ? -1 : index;
+    this.onSelect.emit(index >= 0 ? this.renderedList[index] : null);
+  }
+
+  private resetCurrentSelection(){
+    this.selectIndex = -1;
   }
 
 }
