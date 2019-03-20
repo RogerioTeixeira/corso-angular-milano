@@ -15,9 +15,6 @@ export class DatatableComponent implements OnInit {
   @Input() 
   set data(value:any){
     this._data = value
-    if(this.pageData){
-      this.renderList();
-    }
   }
 
   get data(){
@@ -45,7 +42,6 @@ export class DatatableComponent implements OnInit {
   }
 
   changePage(event: PageData) {
-    
     this.pageData = event;
     this.renderList();
     this.resetCurrentSelection();
@@ -53,7 +49,9 @@ export class DatatableComponent implements OnInit {
   }
 
   renderList() {
-    this.renderedList = this.data.slice(this.pageData.startIndex, this.pageData.endIndex + 1);
+    setTimeout(()=>{
+      this.renderedList = this.data.slice(this.pageData.startIndex, this.pageData.endIndex + 1);
+    })
   }
 
   selectRow(index:number){

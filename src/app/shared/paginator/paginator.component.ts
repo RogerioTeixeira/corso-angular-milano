@@ -34,8 +34,9 @@ export class PaginatorComponent implements OnInit {
   constructor(public pagination: PaginatorService) { }
 
   ngOnInit() {
+    this.setPage(1);
     setTimeout(() => {
-      this.setPage(1);
+     
     })
 
   }
