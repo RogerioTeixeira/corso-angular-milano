@@ -1,0 +1,11 @@
+<nav aria-label="...">
+  <ul class="pagination" >
+    <li class="page-item " [ngClass]="{'disabled':pager?.currentPage <= 1}">
+      <a class="page-link"  href="javascript:void(0)" (click)="setPage(pager.currentPage - 1)" tabindex="-1" aria-disabled="true">Previous</a>
+    </li>
+    <li class="page-item"  [ngClass]="{'active':page == pager.currentPage}" *ngFor="let page of pager?.pages"><a class="page-link" href="javascript:void(0)" (click)="setPage(page)">{{page}}</a></li>
+    <li class="page-item" [ngClass]="{'disabled':pager?.currentPage == pager?.endPage}">
+      <a class="page-link"  href="javascript:void(0)" (click)="setPage(pager.currentPage + 1)">Next</a>
+    </li>
+  </ul>
+</nav>

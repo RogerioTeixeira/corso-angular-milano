@@ -1,25 +1,18 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div class="container">
-  <div class="row mt-3">
-    <div class="col-md-4 mb-2" *ngFor="let item of listaPersone">
-        <app-card-person [persona]="item" [color]="'red'"></app-card-person>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <app-navbar [navLinks]="navlinks"></app-navbar>
+    </div>
+  </div>
+  <div class="row" style="min-height:calc(100vh - 120px)">
+    <div class="col-md-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+     <div style="height: 56px; color:#fff" class="bg-dark"></div>
     </div>
   </div>
 </div>
-<button class="btn btn-primary" (click)="add()">+</button>
-<button class="btn btn-primary" (click)="substract()">-</button>
-<button class="btn btn-primary" (click)="moveLeft()"><--</button>
-<button class="btn btn-primary" (click)="moveRight()">--></button>
 
-<div style="position: relative; margin-left: 50px; width: 1000px;">
-  <div 
-  [style.border-radius.px] ="radius"
-  [style.left.px] ="left"
-  style="border: 1px solid red; height: 100px; width: 100px; position:absolute;"></div>
-</div>
-
-
-
-<app-card-person></app-card-person>
-
-<router-outlet></router-outlet>
