@@ -14,6 +14,8 @@ import localeIt from '@angular/common/locales/it';
 import localeItExtra from '@angular/common/locales/extra/it';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule  } from '@angular/forms';
+import { LoginPageComponent } from './views/login-page/login-page.component';
+import { DettaglioClienteComponent } from './views/dettaglio-cliente/dettaglio-cliente.component';
 
 registerLocaleData(localeIt, 'it', localeItExtra);
 
@@ -23,7 +25,9 @@ registerLocaleData(localeIt, 'it', localeItExtra);
     NavbarComponent,
     HomePageComponent,
     ProdottiPageComponent,
-    ClientiPageComponent
+    ClientiPageComponent,
+    LoginPageComponent,
+    DettaglioClienteComponent
   ],
   imports: [
     BrowserModule,

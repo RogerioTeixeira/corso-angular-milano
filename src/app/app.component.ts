@@ -11,7 +11,8 @@ export class AppComponent {
   navlinks:Navlink[] = [
     new Navlink("Home","home"), 
     new Navlink("Clienti","clienti"),
-    new Navlink("Prodotti","prodotti")
+    new Navlink("Prodotti","prodotti"),
+    new Navlink("Login","login")
   ]
   
 }

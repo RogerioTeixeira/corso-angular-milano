@@ -1,28 +1,3 @@
-<form *ngIf="currentCliente">
-  <div class="row mt-2">
-    <div class="col-md-4">
-      <div class="form-group">
-        <label>Nome</label>
-        <input class="form-control" name="nome" [(ngModel)]="currentCliente.nome">
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="form-group">
-        <label>cognome</label>
-        <input class="form-control" name="cognome" [(ngModel)]="currentCliente.cognome">
-      </div>
-    </div>
-    <div class="col-md-1">
-      <div class="form-group">
-        <label>Eta</label>
-        <input class="form-control" name="eta" [(ngModel)]="currentCliente.eta">
-      </div>
-    </div>
-    <div class="col-md-1 d-flex align-items-end">
-      <button class="btn btn-primary mb-3">Salva</button>
-    </div>
-  </div>
-</form>
 <div class="row mt-2">
   <div class="col-md-12">
     <app-datatable [cols]="cols" [data]="data" [activateDelete]="true" (onDelete)="deleteRow($event)" (onSelect)="selectRow($event)"></app-datatable>

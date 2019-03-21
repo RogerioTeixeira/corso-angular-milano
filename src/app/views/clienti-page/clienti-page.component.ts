@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataTableCol } from 'src/app/models/datatable-col';
 import { Cliente } from 'src/app/models/cliente';
 import { ClienteService } from 'src/app/core/services/cliente.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-clienti-page',
@@ -11,20 +12,22 @@ import { ClienteService } from 'src/app/core/services/cliente.service';
 export class ClientiPageComponent implements OnInit {
 
   public cols:DataTableCol[];
-  public data:Cliente[];
+  public data:Cliente[] = [];
   public currentCliente:Cliente;
 
   
-  constructor(public clienteService:ClienteService) { }
+  constructor(public clienteService:ClienteService,private router:Router) { }
 
   ngOnInit() {
     this.cols = [
-      new DataTableCol("Nome", "nome"),
+      new DataTableCol("Nome", "name"),
       new DataTableCol("Cognome", "cognome"),
       new DataTableCol("Eta", "eta")
     ]
 
-   this.data = this.clienteService.getAllCliente();
+   this.clienteService.getAllCliente().subscribe(x=>{
+     this.data = x;
+   })
   }
 
   deleteRow(value:Cliente){
@@ -32,11 +35,7 @@ export class ClientiPageComponent implements OnInit {
   }
   
   selectRow(event){
-    console.log(event)
-     this.currentCliente = event;
-     if(this.currentCliente){
-      
-     }
+    this.router.navigate(["clienti",event.id])
   }
 
 }
