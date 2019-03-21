@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Cliente } from 'src/app/models/cliente';
 import { ApiService } from './api.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -43,19 +44,19 @@ export class ClienteService {
     new Cliente({nome:"carlo 18", cognome:"rossi" , eta:40 , id:198})
     
   ]
-  constructor() { }
+  constructor(private api:ApiService) { }
 
   deleteByid (id:number):Cliente[] {
     this.data = this.data.filter(item=> item.id != id);
     return this.data;
   }
 
-  getAllCliente():Cliente[]{
-    return this.data;
+  getAllCliente():Observable<any>{
+    return this.api.get('/clienti')
   }
 
-  getClienteById(id:number):Cliente{
-    return this.data.find(x=> x.id == id);
+  getClienteById(id:number):Observable<any>{
+    return this.api.get('/clienti/' + id);
   }
 
   insertCliente(value:Cliente){
