@@ -34,7 +34,7 @@ export class DatatableComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.renderedList = this.data.slice(0, this.maxRows + 1)
+  
   }
 
   delete(val: any, e:Event) {
@@ -56,9 +56,9 @@ export class DatatableComponent implements OnInit {
   }
 
   selectRow(index:number){
-   
+    console.log(index , this.selectIndex)
     this.selectIndex = index == this.selectIndex ? -1 : index;
-    this.onSelect.emit(index >= 0 ? this.renderedList[index] : null);
+    this.onSelect.emit(this.selectIndex >= 0 ? this.renderedList[index] : null);
   }
 
   private resetCurrentSelection(){
